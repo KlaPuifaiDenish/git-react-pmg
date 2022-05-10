@@ -372,12 +372,10 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services' // <- Add this line
 
 
-
-defaultConfig {
-    applicationId "com.appblog"
-    minSdkVersion rootProject.ext.minSdkVersion
-    targetSdkVersion rootProject.ext.targetSdkVersion
-    versionCode 1
-    versionName "1.0"
-    multiDexEnabled true // <-Add this line
+buildscript {
+  dependencies {
+    // ... other dependencies
+    classpath 'com.google.gms:google-services:4.3.10'
+    // Add me --- /\
+  }
 }
