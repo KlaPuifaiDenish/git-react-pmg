@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "react-pmg",
+    "slug": "react-pmg",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "react-pmg"
+}
