@@ -6,7 +6,7 @@ import {
   View,
   Text,
 } from "react-native";
-//import firebaseapp from "../database/firebaseDB";
+import firebaseapp from "../database/firebaseDB";
 
 import { ThemeProvider, Button, Input, Image } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";

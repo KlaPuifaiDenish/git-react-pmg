@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -7,14 +6,14 @@ import { StyleSheet, Text, View } from "react-native";
 import AddData from "./screens/AddData";
 import Reports from "./screens/Reports";
 
-const Stack = createStackNavigator();
 
+const Stack = createStackNavigator();
 function MyStack() {
   return (
     <Stack.Navigator
-      screenOption={{
+      screenOptions={{
         headerStyle: {
-          backgroundColor: "#0085E6",
+          backgroundColor: "#F2A753",
         },
         headerTintColor: "#fff",
         headerTitleStyle: {
@@ -33,6 +32,7 @@ function MyStack() {
         component={Reports}
         options={{ title: "Reports" }}
       ></Stack.Screen>
+
     </Stack.Navigator>
   );
 }
@@ -40,8 +40,8 @@ function MyStack() {
 export default function App() {
   return (
     <NavigationContainer>
-    <MyStack />
-  </NavigationContainer>
+      <MyStack />
+    </NavigationContainer>
   );
 }
 
