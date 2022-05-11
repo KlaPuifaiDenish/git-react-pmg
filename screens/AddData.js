@@ -6,14 +6,16 @@ import {
   View,
   Text,
 } from "react-native";
-//import firebaseapp  from "../database/firebaseDB";
+import db from "../database/firebaseDB";
 
 import { ThemeProvider, Button, Input, Image } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { collection, addDoc } from "firebase/firestore"; 
 
 class AddData extends Component {
   constructor() {
     super();
+   
   }
   render() {
     return (
@@ -52,15 +54,15 @@ class AddData extends Component {
           <Button
             icon={<Icon name="plus" size={15} color="white" />}
             title=" Add Data"
-            buttonStyle={{backgroundColor:'green'}}
+            buttonStyle={{ backgroundColor: "green" }}
           />
 
           <Button
             icon={<Icon name="file" size={15} color="white" />}
-
             title="    Report"
-            containerStyle={{marginTop:5}}
-            buttonStyle={{backgroundColor:'#F2A753'}}
+            containerStyle={{ marginTop: 5 }}
+            buttonStyle={{ backgroundColor: "#F2A753" }}
+            onPress={() => this.props.navigation.navigate("Reports")}
           />
         </ScrollView>
       </ThemeProvider>
