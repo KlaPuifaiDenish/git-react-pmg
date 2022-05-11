@@ -4,7 +4,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import { StyleSheet, Text, View } from "react-native";
-import AddData from './screens/AddData'
+import AddData from "./screens/AddData";
+import Reports from "./screens/Reports";
 
 const Stack = createStackNavigator();
 
@@ -22,10 +23,15 @@ function MyStack() {
       }}
     >
       <Stack.Screen
-       name="AddData"
-       component={AddData}
-       options={{title:'Add Data'}}
-      
+        name="AddData"
+        component={AddData}
+        options={{ title: "Add Data" }}
+      ></Stack.Screen>
+
+      <Stack.Screen
+        name="Reports"
+        component={Reports}
+        options={{ title: "Reports" }}
       ></Stack.Screen>
     </Stack.Navigator>
   );
@@ -34,8 +40,8 @@ function MyStack() {
 export default function App() {
   return (
     <NavigationContainer>
-      <MyStack />
-    </NavigationContainer>
+    <MyStack />
+  </NavigationContainer>
   );
 }
 

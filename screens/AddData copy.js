@@ -6,16 +6,51 @@ import {
   View,
   Text,
 } from "react-native";
-//import firebaseapp  from "../database/firebaseDB";
 
 import { ThemeProvider, Button, Input, Image } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
 
+import {authentication,db} from './database/firebaseDB'
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { collection, addDoc } from "firebase/firestore/lite"; 
+
+
+
 class AddData extends Component {
   constructor() {
     super();
+    this.state = {
+      name: "",
+      mobile: "",
+      province: "",
+      dx: "",
+      isLoading: false,
+    };
+
   }
+
+  inputValueUpdate = (val, prop) => {
+    const state = this.state;
+    state[prop] = val;
+    this.setState(state);
+  };
+
+
+  storeData() {
+    if (this.state.name == "") {
+      alert("Fill at least your name!");
+    } else {
+    
+         addDoc(collection(db, "react-native-pmg"), {
+          name: "",
+        });
+   
+    }
+  }
+
+
   render() {
+   
     return (
       <ThemeProvider>
         <ScrollView style={styles.container}>
@@ -35,6 +70,8 @@ class AddData extends Component {
             leftIcon={<Icon name="user-o" size={20} color="#F2A753" />}
             placeholder={"   Name"}
             containerStyle={{ marginTop: 20 }}
+            value={this.state.name}
+            onChangeText={(val) => this.inputValueUpdate(val,'name')}
           />
           <Input
             leftIcon={<Icon name="mobile" size={30} color="#F2A753" />}
@@ -52,15 +89,16 @@ class AddData extends Component {
           <Button
             icon={<Icon name="plus" size={15} color="white" />}
             title=" Add Data"
-            buttonStyle={{backgroundColor:'green'}}
+            buttonStyle={{ backgroundColor: "green" }}
+            onPress={() => this.storeData()}
           />
 
           <Button
             icon={<Icon name="file" size={15} color="white" />}
-
             title="    Report"
-            containerStyle={{marginTop:5}}
-            buttonStyle={{backgroundColor:'#F2A753'}}
+            containerStyle={{ marginTop: 5 }}
+            buttonStyle={{ backgroundColor: "#F2A753" }}
+            onPress={() => this.props.navigation.navigate("Reports")}
           />
         </ScrollView>
       </ThemeProvider>
