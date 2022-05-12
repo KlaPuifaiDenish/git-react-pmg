@@ -1,27 +1,31 @@
 import { View, Text } from 'react-native'
 import { ThemeProvider, Button, Input, Image } from "react-native-elements";
-import React from 'react'
-import { collection, getDocs,addDoc,doc, setDoc  } from "firebase/firestore/lite";
-import {  db } from "./database/firebaseDB";
+import React ,  {useState , useEffect} from 'react'
 import Icon from "react-native-vector-icons/FontAwesome";
+import { openDatabase } from "react-native-sqlite-storage";
+
+
+const db = openDatabase({
+  name: "rn_sqlite",
+});
+
 
 export default function AddData() {
 
 
-  const storeData= async ()=>{
-      const name_c ="KLA";
+  const [name , setName ] = useState('');
 
-      await setDoc(doc(db,"cities","Random"), {
-        name: name_c,
-      });
-  }
+  const createTables = () => {
+
+  };
+
   return (
     <View>
        <Button
             icon={<Icon name="plus" size={15} color="white" />}
             title=" Add Data"
             buttonStyle={{ backgroundColor: "green" }}
-            onPress={() => storeData()}
+           /*  onPress={() => storeData()} */
           />
     </View>
   )

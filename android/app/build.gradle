@@ -377,3 +377,11 @@ buildscript {
     // Add me --- /\
   }
 }
+
+// file: android/app/build.gradle
+...
+
+dependencies {
+    ...
+    implementation project(':react-native-sqlite-storage')
+}
